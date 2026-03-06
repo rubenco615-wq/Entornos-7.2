@@ -16,6 +16,9 @@ graph LR
 
 ```
 
+Ejercicio 2
+
+
 ```mermaid
 graph LR
 %% Definición de los Actores
@@ -35,6 +38,38 @@ end
 %% Interacción de los actores
 Cliente --- CU1
 Administrador --- CU3
+
 ```
 
+Ejercicio 3 
+
+```mermaid
+graph LR
+%% Definición de los Actores
+Espectador((Espectador))
+Editor((Editor de Contenido))
+Pasarela((Pasarela de Pagos))
+
+subgraph "Plataforma de Streaming"
+%% Casos de Uso
+CU1([Reproducir Película])
+CU2([Validar Suscripción])
+CU3([Activar Subtítulos])
+CU4([Subir Nuevo Video])
+CU5([Renovar Suscripción])
+
+%% Relación de Inclusión (Obligatoria)
+CU1 -.->|&lt;&lt;include&gt;&gt;| CU2
+
+%% Relación de Extensión
+CU3 -.->|&lt;&lt;extend&gt;&gt;| CU1
+end
+
+%% Interacción de los actores
+Espectador --- CU1
+Espectador --- CU5
+Editor --- CU4
+Pasarela --- CU5
+
+```
 
